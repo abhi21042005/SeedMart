@@ -50,34 +50,6 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// Temporary Seed Route (REMOVE IN PRODUCTION)
-app.get('/api/seed', async (req, res) => {
-  try {
-    const User = require('./models/User');
-    const Product = require('./models/Product');
-    const { users, products } = require('./data/mockData');
-    const bcrypt = require('bcryptjs');
-
-    await Product.deleteMany();
-    await User.deleteMany();
-
-    const hashedUsers = users.map(u => ({
-      ...u,
-      password: bcrypt.hashSync(u.password, 12)
-    }));
-    
-    const createdUsers = await User.insertMany(hashedUsers);
-    const seller = createdUsers.find(u => u.role === 'seller');
-    
-    const sampleProducts = products.map(p => ({ ...p, sellerId: seller._id }));
-    await Product.insertMany(sampleProducts);
-
-    res.json({ message: 'Seeded successfully', userCount: createdUsers.length, productCount: sampleProducts.length });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
 // Serve frontend static files
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
