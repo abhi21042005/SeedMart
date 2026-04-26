@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace - Seed & Fertilizer</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <main class="main-content">
+    <div class="marketplace-page page-wrapper">
+      <div class="container">
+        <div class="marketplace-header">
+          <h1>Marketplace</h1>
+          <p id="product-count">0 products available</p>
+        </div>
+
+        <div class="filters-bar" id="filters-bar">
+          <form id="search-form" class="search-form">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Search seeds, fertilizers...">
+          </form>
+
+          <div class="filter-controls">
+            <select id="filter-category">
+              <option value="">All Categories</option>
+              <option value="seeds">🌱 Seeds</option>
+              <option value="fertilizers">🧪 Fertilizers</option>
+            </select>
+
+            <select id="filter-sort">
+              <option value="">Sort: Latest</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="name">Name: A-Z</option>
+            </select>
+
+            <input type="number" id="min-price" placeholder="Min ₹" class="price-input">
+            <input type="number" id="max-price" placeholder="Max ₹" class="price-input">
+
+            <button class="btn btn-secondary btn-sm" id="clear-filters" style="display: none;">Clear</button>
+          </div>
+        </div>
+
+        <div id="products-container" class="product-grid">
+          <!-- Products injected here -->
+        </div>
+
+        <div class="pagination" id="pagination-container" style="display: none;">
+          <button class="btn btn-secondary btn-sm" id="prev-page">Prev</button>
+          <div class="page-numbers" id="page-numbers"></div>
+          <button class="btn btn-secondary btn-sm" id="next-page">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <div id="chatbot-root"></div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/pages/marketplace.js"></script>
+</body>
+</html>

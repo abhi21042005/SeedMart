@@ -1,0 +1,90 @@
+.orders-page { padding-bottom: 4rem; }
+
+.orders-title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  overflow: hidden;
+}
+
+.order-header {
+  background: var(--color-bg-alt);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E2E8F0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-meta {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.order-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.order-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.order-body {
+  padding: 1.5rem;
+}
+
+.order-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-item {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.order-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+}
+
+.order-item-info {
+  flex: 1;
+}
+
+.order-item-name {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.order-item-name:hover { color: var(--color-primary); }
+.order-item-qty { font-size: 0.85rem; color: var(--color-text-secondary); }
+.order-item-price { font-weight: 600; color: var(--color-primary); margin-top: 0.25rem; }
+
+@media (max-width: 640px) {
+  .order-meta { gap: 1.5rem; flex-direction: column; }
+  .order-header { align-items: flex-start; }
+}

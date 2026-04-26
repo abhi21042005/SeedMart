@@ -1,0 +1,124 @@
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.pd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.pd-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  box-shadow: var(--shadow-md);
+}
+
+.pd-image-wrapper img {
+  width: 100%;
+  aspect-ratio: 6/5;
+  object-fit: cover;
+}
+
+.pd-image-wrapper .badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.pd-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.pd-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.pd-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-heading);
+}
+
+.pd-description {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.pd-stock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.in-stock { color: var(--color-success); }
+.out-stock { color: var(--color-error); }
+
+.pd-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.qty-selector button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.qty-selector button:hover { background: #E2E8F0; }
+
+.qty-selector span {
+  width: 48px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pd-reviews {
+  padding-top: 2rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.pd-reviews h2 {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pd-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
