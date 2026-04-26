@@ -63,4 +63,5 @@ const Auth = {
   }
 };
 
+window.Auth = Auth;
 Auth.init();

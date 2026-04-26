@@ -7,7 +7,7 @@ const Wishlist = require('../models/Wishlist');
 const getWishlist = asyncHandler(async (req, res) => {
   let wishlist = await Wishlist.findOne({ userId: req.user._id }).populate(
     'products',
-    'name price image category stock averageRating'
+    'name price image category stock averageRating description'
   );
 
   if (!wishlist) {
@@ -46,7 +46,7 @@ const toggleWishlist = asyncHandler(async (req, res) => {
 
   const updatedWishlist = await Wishlist.findOne({ userId: req.user._id }).populate(
     'products',
-    'name price image category stock'
+    'name price image category stock description'
   );
 
   res.json({

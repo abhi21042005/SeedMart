@@ -19,7 +19,7 @@ const Cart = {
       return;
     }
     try {
-      const data = await fetchApi('/cart/add', {
+      const data = await fetchApi('/cart', {
         method: 'POST',
         body: JSON.stringify({ productId, quantity })
       });
@@ -33,7 +33,7 @@ const Cart = {
 
   async update(productId, quantity) {
     try {
-      const data = await fetchApi('/cart/update', {
+      const data = await fetchApi(`/cart/${productId}`, {
         method: 'PUT',
         body: JSON.stringify({ productId, quantity })
       });
@@ -46,7 +46,7 @@ const Cart = {
 
   async remove(productId) {
     try {
-      const data = await fetchApi(`/cart/remove/${productId}`, { method: 'DELETE' });
+      const data = await fetchApi(`/cart/${productId}`, { method: 'DELETE' });
       this.data = data;
       this.notify();
     } catch (e) {
@@ -76,6 +76,8 @@ const Cart = {
     this.listeners.forEach(cb => cb(this.data));
   }
 };
+
+window.Cart = Cart;
 
 // Auto fetch if logged in
 if (Auth.isAuthenticated) {
