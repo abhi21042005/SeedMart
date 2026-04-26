@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = '/api';
 
 // Utility for fetching API with automatic token injection and error handling
 async function fetchApi(endpoint, options = {}) {

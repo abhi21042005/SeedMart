@@ -26,14 +26,15 @@ app.use(
   })
 );
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+// Ensure uploads directory exists if not on Vercel
+if (!process.env.VERCEL) {
+  const uploadsDir = path.join(__dirname, 'uploads');
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+  // Serve uploaded files
+  app.use('/uploads', express.static(uploadsDir));
 }
-
-// Serve uploaded files
-app.use('/uploads', express.static(uploadsDir));
 
 // API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
