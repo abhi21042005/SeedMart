@@ -23,8 +23,13 @@ const importData = async () => {
     await Cart.deleteMany();
     await Wishlist.deleteMany();
 
-    // Create users
-    const createdUsers = await User.insertMany(users);
+    // Create users with hashed passwords
+    const bcrypt = require('bcryptjs');
+    const hashedUsers = users.map(user => ({
+      ...user,
+      password: bcrypt.hashSync(user.password, 12)
+    }));
+    const createdUsers = await User.insertMany(hashedUsers);
 
     // Get seller ID
     const sellerUser = createdUsers.find(user => user.role === 'seller');
